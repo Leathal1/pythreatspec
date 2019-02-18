@@ -42,11 +42,13 @@ RUN yarn add mermaid
 #At this point we should have everything we need
 #-----------------------------------------------
 #Switch to tutorial directory
-WORKDIR /usr/src/app/tutorial
+RUN cd /usr/src/app/tutorial && ls
+RUN python setup.py install
 
 #Tutorial Setup
 RUN ["/bin/bash", "-c", "virtualenv venv"]
-RUN ["/bin/bash", "-c", "source venv/bin/active"]
-RUN ["/bin/bash", "-c", "python setup.py install"]
 
-RUN ./run_tutorial_step.sh LAMP_Multi_AZ_01
+ENTRYPOINT ["/bin/bash"]
+CMD ["/usr/src/app/tutorial/run_tutorial_step.sh", "LAMP_Multi_AZ_01"]
+
+#RUN ./run_tutorial_step.sh LAMP_Multi_AZ_01
