@@ -19,6 +19,6 @@ deactivate
 popd
 
 echo "Generating PNG using mermaid"
-mermaid -w 1871 "${name}.mermaid"
+$MERMAID -w 1871 -i "${name}.mermaid"
 
 echo "You can now view ${name}.mermaid.png"
