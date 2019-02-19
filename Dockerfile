@@ -46,7 +46,7 @@ RUN cd /usr/src/app/tutorial && ls
 RUN python setup.py install
 
 #Tutorial Setup
-RUN ["/bin/bash", "-c", "virtualenv venv"]
+#RUN ["/bin/bash", "-c", "virtualenv venv"]
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/usr/src/app/tutorial/run_tutorial_step.sh", "LAMP_Multi_AZ_01"]
