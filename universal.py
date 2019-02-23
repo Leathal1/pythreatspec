@@ -3,6 +3,7 @@
 import sys
 import json
 import re
+import os
 import logging
 from cli.log import LoggingApp
 from pythreatspec import pythreatspec as ts

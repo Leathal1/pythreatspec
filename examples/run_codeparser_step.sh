@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-if [ ${1: -14} == "_components.py" ]; then
-  name=${1:0:16}
-else
-  name=$1
-fi
+#if [ ${1: -14} == "_components.py" ]; then
+#name=${1:0:16}
+#else
+name=$1
+#fi
 
 echo "Running universal parser for $name"
 source ../venv/bin/activate
-../universal.py -p "$name" ${name}_*.py
+../universal.py -p "$name" ${name}*.go
 deactivate
 
 echo "Running mermaid DFD reporting tool"
 pushd ../report_dfd
 source ../venv/bin/activate
-./mermaid.py ../examples/cwe_library.threatspec.json "../tutorial/${name}.threatspec.json" > "../tutorial/${name}.mermaid"
+python ./mermaid.py ../examples/cwe_library.threatspec.json "../examples/${name}.threatspec.json" > "../examples/${name}.mermaid"
 deactivate
 popd
 
