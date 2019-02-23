@@ -49,6 +49,6 @@ RUN python setup.py install
 #RUN ["/bin/bash", "-c", "virtualenv venv"]
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["/usr/src/app/tutorial/run_tutorial_step.sh", "LAMP_Multi_AZ_01"]
+CMD ["cd","/usr/src/app/examples/"]
 
-#RUN ./run_tutorial_step.sh LAMP_Multi_AZ_01
+RUN /usr/src/app/examples/run_codeparser_step.sh simple_web
